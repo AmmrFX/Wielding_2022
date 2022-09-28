@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="ShopTest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Item Number" Type="float" />
+          <Property Name="Weld Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Intitial Production" Type="nvarchar" MaxLength="255" />
+          <Property Name="Drawing Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Line Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Line class" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material Type Side A" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material Type Side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material grade_Side A" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material grade_Side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pipe/fitting number side A/side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Heat number side A/side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Spool No#" Type="nvarchar" MaxLength="255" />
+          <Property Name="Weld Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Thickness_(mm)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Diameter_(inch)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Weld process" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fit-up date" Type="datetime" />
+          <Property Name="Fit-up inspection QR number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WeModelStoreContainer">
+          <EntitySet Name="ShopTest" EntityType="Self.ShopTest" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="ShopTest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Item_Number" Type="Double" />
+          <Property Name="Weld_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Intitial_Production" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Drawing_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Line_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Line_class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_Type_Side_A" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_Type_Side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_grade_Side_A" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_grade_Side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Pipe_fitting_number_side_A_side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Heat_number_side_A_side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Spool_No_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Thickness__mm_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Diameter__inch_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_process" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fit_up_date" Type="DateTime" Precision="3" />
+          <Property Name="Fit_up_inspection_QR_number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="WeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ShopTests" EntityType="Self.ShopTest" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WeModelStoreContainer" CdmEntityContainer="WeEntities">
+          <EntitySetMapping Name="ShopTests">
+            <EntityTypeMapping TypeName="WeModel.ShopTest">
+              <MappingFragment StoreEntitySet="ShopTest">
+                <ScalarProperty Name="Item_Number" ColumnName="Item Number" />
+                <ScalarProperty Name="Weld_Number" ColumnName="Weld Number" />
+                <ScalarProperty Name="Intitial_Production" ColumnName="Intitial Production" />
+                <ScalarProperty Name="Drawing_Number" ColumnName="Drawing Number" />
+                <ScalarProperty Name="Line_Number" ColumnName="Line Number" />
+                <ScalarProperty Name="Line_class" ColumnName="Line class" />
+                <ScalarProperty Name="Material_Type_Side_A" ColumnName="Material Type Side A" />
+                <ScalarProperty Name="Material_Type_Side_B" ColumnName="Material Type Side B" />
+                <ScalarProperty Name="Material_grade_Side_A" ColumnName="Material grade_Side A" />
+                <ScalarProperty Name="Material_grade_Side_B" ColumnName="Material grade_Side B" />
+                <ScalarProperty Name="Pipe_fitting_number_side_A_side_B" ColumnName="Pipe/fitting number side A/side B" />
+                <ScalarProperty Name="Heat_number_side_A_side_B" ColumnName="Heat number side A/side B" />
+                <ScalarProperty Name="Spool_No_" ColumnName="Spool No#" />
+                <ScalarProperty Name="Weld_Type" ColumnName="Weld Type" />
+                <ScalarProperty Name="Thickness__mm_" ColumnName="Thickness_(mm)" />
+                <ScalarProperty Name="Diameter__inch_" ColumnName="Diameter_(inch)" />
+                <ScalarProperty Name="Weld_process" ColumnName="Weld process" />
+                <ScalarProperty Name="Fit_up_date" ColumnName="Fit-up date" />
+                <ScalarProperty Name="Fit_up_inspection_QR_number" ColumnName="Fit-up inspection QR number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
