@@ -47,8 +47,6 @@ namespace Backkk
             try
             {
                 var wield2 = (ShopTest)membersDataGrid.SelectedItem;
-
-
                 ShopTest shop = DbSetup.getOneWield(wield2.Weld_Number);
                 UpdateWieldWindow1 update = new UpdateWieldWindow1(shop.Weld_Number);
                 update.Show();
