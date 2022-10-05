@@ -39,6 +39,7 @@ namespace Backkk
         private void membersDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
 
+
         }
 
         private void Update_Btn_Click(object sender, RoutedEventArgs e)

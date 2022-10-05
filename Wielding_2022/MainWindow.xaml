@@ -6,7 +6,7 @@
 Background="Transparent" WindowStyle="None" WindowState="Maximized" Loaded="MainWindow_OnLoaded"
         mc:Ignorable="d" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
         
-        Height="720" Width="1080" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+        Height="720" Width="1800" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Window.Resources>
@@ -94,8 +94,8 @@ Background="Transparent" WindowStyle="None" WindowState="Maximized" Loaded="Main
                            Panel.ZIndex="1" Text="Search here ..." Name="SearchTXT" 
                            Visibility="{Binding ElementName=textBoxSearch,  Converter={StaticResource BoolToVis}}" Grid.Row="1" />
                 <ComboBox
-                Grid.Row="1" x:Name="textBoxSearch" Margin="0,19,405,19" Height="30" IsEditable="True" IsTextSearchEnabled="True" VerticalAlignment="Center"></ComboBox>
-                <ComboBox Margin="473,19,220,19" Grid.Row="1"/>
+                    Grid.Row="1" x:Name="textBoxSearch" Margin="0,19,405,19" Height="30" IsEditable="True" IsTextSearchEnabled="True" Width="500"></ComboBox>
+                <ComboBox Margin="518,18,75,21" Grid.Row="1" RenderTransformOrigin="-0.036,0.462" Width="200"/>
 
                 <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" Margin="376,0,0,0" Foreground="#B0B9C6" Grid.Row="1" VerticalAlignment="Center" />
                 <!--Seprator-->

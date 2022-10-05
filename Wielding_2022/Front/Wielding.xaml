@@ -16,7 +16,7 @@
     <Border CornerRadius="30" Background="#EFF2F7" >
 
         <Grid>
-           
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
@@ -41,7 +41,7 @@
 
                         <!--Menu Titles-->
                         <TextBlock Text="Shop Weilding" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
-                        
+
                         <!--Menu Seprator-->
                         <Separator Margin="25" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
 
@@ -77,7 +77,7 @@
                     <Icon:PackIconMaterial Kind="Cog"/>
                 </Button>
 
-              
+
 
                 <Button Background="Transparent" Style="{StaticResource topButton}"  Margin="0 0 10 0" BorderBrush="Transparent" Width="auto" Height="auto"  Cursor="Hand" x:Name="btn_close" Click="WindowClose_Click">
                     <Icon:PackIconMaterial Kind="Close" Width="40" Height="17" Background="#dcdcdc" Foreground="#1F4591" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -97,8 +97,8 @@
                            Panel.ZIndex="1" Text="Search here ..." Name="SearchTXT" 
                            Visibility="{Binding ElementName=textBoxSearch,  Converter={StaticResource BoolToVis}}" Grid.Row="1" />
                 <ComboBox
-                Grid.Row="1" x:Name="textBoxSearch" Margin="0,19,405,19" Height="30" IsEditable="True" IsTextSearchEnabled="True" VerticalAlignment="Center"></ComboBox>
-                <ComboBox Margin="590,25,103,13" Grid.Row="1" RenderTransformOrigin="-0.036,0.462"/>
+                Grid.Row="1" x:Name="textBoxSearch" Margin="0,19,405,19" Height="30" IsEditable="True" IsTextSearchEnabled="True" Width="500"></ComboBox>
+                <ComboBox Margin="518,18,75,21" Grid.Row="1" RenderTransformOrigin="-0.036,0.462" Width="200"/>
 
                 <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" Margin="376,0,0,0" Foreground="#B0B9C6" Grid.Row="1" VerticalAlignment="Center" />
                 <!--Seprator-->
@@ -106,7 +106,7 @@
 
                 <!--Tab buttons-->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                    <Button Style="{StaticResource tabButton}" Content="Club staff" BorderBrush="#784FF2"/>
+                    <Button Style="{StaticResource tabButton}" Content="Club staff" />
                     <Button Style="{StaticResource tabButton}" Content="Players"/>
                     <Button Style="{StaticResource tabButton}" Content="Archived"/>
                 </StackPanel>
