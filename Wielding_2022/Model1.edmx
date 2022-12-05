@@ -5,66 +5,135 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="WeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityType Name="ShopTest">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'We.dbo.First_Result' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="First_Result">
+          <Key>
+            <PropertyRef Name="Weld_Number" />
+          </Key>
+          <Property Name="First_RT_ASSESSMENT_NO" Type="nvarchar" MaxLength="70" />
+          <Property Name="First_THIRD_PARTY_DATE" Type="datetime" />
+          <Property Name="First_THIRD_PARTY_RESULT" Type="nvarchar" MaxLength="70" />
+          <Property Name="First_THIRD_PARTY_RESULT_Date" Type="date" />
+          <Property Name="PRIME_CONTRACTOR_RESULT" Type="nvarchar" MaxLength="70" />
+          <Property Name="Weld_Number" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Main_Tables">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Drawing_Number" Type="nvarchar" MaxLength="100" />
+          <Property Name="Line_Number" Type="nvarchar" MaxLength="100" />
+          <Property Name="Line_Class" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wield_Details">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Item Number" Type="float" />
-          <Property Name="Weld Number" Type="nvarchar" MaxLength="255" />
-          <Property Name="Intitial Production" Type="nvarchar" MaxLength="255" />
-          <Property Name="Drawing Number" Type="nvarchar" MaxLength="255" />
-          <Property Name="Line Number" Type="nvarchar" MaxLength="255" />
-          <Property Name="Line class" Type="nvarchar" MaxLength="255" />
-          <Property Name="Material Type Side A" Type="nvarchar" MaxLength="255" />
-          <Property Name="Material Type Side B" Type="nvarchar" MaxLength="255" />
-          <Property Name="Material grade_Side A" Type="nvarchar" MaxLength="255" />
-          <Property Name="Material grade_Side B" Type="nvarchar" MaxLength="255" />
-          <Property Name="Pipe/fitting number side A/side B" Type="nvarchar" MaxLength="255" />
-          <Property Name="Heat number side A/side B" Type="nvarchar" MaxLength="255" />
-          <Property Name="Spool No#" Type="nvarchar" MaxLength="255" />
-          <Property Name="Weld Type" Type="nvarchar" MaxLength="255" />
-          <Property Name="Thickness_(mm)" Type="nvarchar" MaxLength="255" />
-          <Property Name="Diameter_(inch)" Type="nvarchar" MaxLength="255" />
-          <Property Name="Weld process" Type="nvarchar" MaxLength="255" />
-          <Property Name="Fit-up date" Type="datetime" />
-          <Property Name="Fit-up inspection QR number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Weld_Number" Type="nvarchar" MaxLength="110" />
+          <Property Name="Intitial_Production" Type="nvarchar" MaxLength="110" />
+          <Property Name="Drawing_Number" Type="nvarchar" MaxLength="110" />
+          <Property Name="Line_Number" Type="nvarchar" MaxLength="110" />
+          <Property Name="Line_Class" Type="nvarchar" MaxLength="110" />
+          <Property Name="Material_T_Side_A" Type="nvarchar" MaxLength="110" />
+          <Property Name="Material_T_Side_B" Type="nvarchar" MaxLength="110" />
+          <Property Name="Material_G_Side_A" Type="nvarchar" MaxLength="110" />
+          <Property Name="Material_G_Side_B" Type="nvarchar" MaxLength="110" />
+          <Property Name="Pipe_fitting_number_side_A_side_B" Type="nvarchar" MaxLength="110" />
+          <Property Name="Heat_number_side_A_side_B" Type="nvarchar" MaxLength="110" />
+          <Property Name="Spool_No" Type="nvarchar" MaxLength="110" />
+          <Property Name="Weld_Type" Type="nvarchar" MaxLength="110" />
+          <Property Name="Thickness" Type="nvarchar" MaxLength="110" />
+          <Property Name="Diametere" Type="nvarchar" MaxLength="110" />
+          <Property Name="Weld_process" Type="nvarchar" MaxLength="110" />
+          <Property Name="Fit_up_Date" Type="datetime" />
+          <Property Name="Fit_up_inspection_QR_number" Type="nvarchar" MaxLength="110" />
+          <Property Name="Date_Welded" Type="datetime" />
+          <Property Name="Wps_Number" Type="nvarchar" MaxLength="110" />
+          <Property Name="Wps_NO_Verfied" Type="nvarchar" MaxLength="110" />
+          <Property Name="Post_visual_result" Type="nvarchar" MaxLength="110" />
+          <Property Name="Post_visual_inspection_QR_NO" Type="nvarchar" MaxLength="110" />
+          <Property Name="Percentage_of_NDE_required" Type="float" />
+          <Property Name="Date_NDE_was_requested" Type="datetime" />
+          <Property Name="NDE_request_QR_number" Type="nvarchar" MaxLength="110" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityContainer Name="WeModelStoreContainer">
-          <EntitySet Name="ShopTest" EntityType="Self.ShopTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Main_Tables" EntityType="Self.Main_Tables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wield_Details" EntityType="Self.Wield_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="First_Result" EntityType="Self.First_Result" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[First_Result].[First_RT_ASSESSMENT_NO] AS [First_RT_ASSESSMENT_NO], 
+[First_Result].[First_THIRD_PARTY_DATE] AS [First_THIRD_PARTY_DATE], 
+[First_Result].[First_THIRD_PARTY_RESULT] AS [First_THIRD_PARTY_RESULT], 
+[First_Result].[First_THIRD_PARTY_RESULT_Date] AS [First_THIRD_PARTY_RESULT_Date], 
+[First_Result].[PRIME_CONTRACTOR_RESULT] AS [PRIME_CONTRACTOR_RESULT], 
+[First_Result].[Weld_Number] AS [Weld_Number]
+FROM [dbo].[First_Result] AS [First_Result]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityType Name="ShopTest">
+        <EntityType Name="Main_Tables">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Drawing_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Line_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Line_Class" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Wield_Details">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Item_Number" Type="Double" />
-          <Property Name="Weld_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Intitial_Production" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Drawing_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Line_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Line_class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Material_Type_Side_A" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Material_Type_Side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Material_grade_Side_A" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Material_grade_Side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Pipe_fitting_number_side_A_side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Heat_number_side_A_side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Spool_No_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Weld_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Thickness__mm_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Diameter__inch_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Weld_process" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Fit_up_date" Type="DateTime" Precision="3" />
-          <Property Name="Fit_up_inspection_QR_number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_Number" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Intitial_Production" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Drawing_Number" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Line_Number" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Line_Class" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Material_T_Side_A" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Material_T_Side_B" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Material_G_Side_A" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Material_G_Side_B" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Pipe_fitting_number_side_A_side_B" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Heat_number_side_A_side_B" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Spool_No" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_Type" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Thickness" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Diametere" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_process" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Fit_up_Date" Type="DateTime" Precision="3" />
+          <Property Name="Fit_up_inspection_QR_number" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Welded" Type="DateTime" Precision="3" />
+          <Property Name="Wps_Number" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Wps_NO_Verfied" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Post_visual_result" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Post_visual_inspection_QR_NO" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Percentage_of_NDE_required" Type="Double" />
+          <Property Name="Date_NDE_was_requested" Type="DateTime" Precision="3" />
+          <Property Name="NDE_request_QR_number" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="First_Result">
+          <Key>
+            <PropertyRef Name="Weld_Number" />
+          </Key>
+          <Property Name="First_RT_ASSESSMENT_NO" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="First_THIRD_PARTY_DATE" Type="DateTime" Precision="3" />
+          <Property Name="First_THIRD_PARTY_RESULT" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="First_THIRD_PARTY_RESULT_Date" Type="DateTime" Precision="0" />
+          <Property Name="PRIME_CONTRACTOR_RESULT" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="WeEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ShopTests" EntityType="Self.ShopTest" />
+          <EntitySet Name="Main_Tables" EntityType="Self.Main_Tables" />
+          <EntitySet Name="Wield_Details" EntityType="Self.Wield_Details" />
+          <EntitySet Name="First_Result" EntityType="Self.First_Result" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -72,29 +141,58 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="WeModelStoreContainer" CdmEntityContainer="WeEntities">
-          <EntitySetMapping Name="ShopTests">
-            <EntityTypeMapping TypeName="WeModel.ShopTest">
-              <MappingFragment StoreEntitySet="ShopTest">
-                <ScalarProperty Name="Item_Number" ColumnName="Item Number" />
-                <ScalarProperty Name="Weld_Number" ColumnName="Weld Number" />
-                <ScalarProperty Name="Intitial_Production" ColumnName="Intitial Production" />
-                <ScalarProperty Name="Drawing_Number" ColumnName="Drawing Number" />
-                <ScalarProperty Name="Line_Number" ColumnName="Line Number" />
-                <ScalarProperty Name="Line_class" ColumnName="Line class" />
-                <ScalarProperty Name="Material_Type_Side_A" ColumnName="Material Type Side A" />
-                <ScalarProperty Name="Material_Type_Side_B" ColumnName="Material Type Side B" />
-                <ScalarProperty Name="Material_grade_Side_A" ColumnName="Material grade_Side A" />
-                <ScalarProperty Name="Material_grade_Side_B" ColumnName="Material grade_Side B" />
-                <ScalarProperty Name="Pipe_fitting_number_side_A_side_B" ColumnName="Pipe/fitting number side A/side B" />
-                <ScalarProperty Name="Heat_number_side_A_side_B" ColumnName="Heat number side A/side B" />
-                <ScalarProperty Name="Spool_No_" ColumnName="Spool No#" />
-                <ScalarProperty Name="Weld_Type" ColumnName="Weld Type" />
-                <ScalarProperty Name="Thickness__mm_" ColumnName="Thickness_(mm)" />
-                <ScalarProperty Name="Diameter__inch_" ColumnName="Diameter_(inch)" />
-                <ScalarProperty Name="Weld_process" ColumnName="Weld process" />
-                <ScalarProperty Name="Fit_up_date" ColumnName="Fit-up date" />
-                <ScalarProperty Name="Fit_up_inspection_QR_number" ColumnName="Fit-up inspection QR number" />
+          <EntitySetMapping Name="Main_Tables">
+            <EntityTypeMapping TypeName="WeModel.Main_Tables">
+              <MappingFragment StoreEntitySet="Main_Tables">
+                <ScalarProperty Name="Drawing_Number" ColumnName="Drawing_Number" />
+                <ScalarProperty Name="Line_Number" ColumnName="Line_Number" />
+                <ScalarProperty Name="Line_Class" ColumnName="Line_Class" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wield_Details">
+            <EntityTypeMapping TypeName="WeModel.Wield_Details">
+              <MappingFragment StoreEntitySet="Wield_Details">
+                <ScalarProperty Name="Weld_Number" ColumnName="Weld_Number" />
+                <ScalarProperty Name="Intitial_Production" ColumnName="Intitial_Production" />
+                <ScalarProperty Name="Drawing_Number" ColumnName="Drawing_Number" />
+                <ScalarProperty Name="Line_Number" ColumnName="Line_Number" />
+                <ScalarProperty Name="Line_Class" ColumnName="Line_Class" />
+                <ScalarProperty Name="Material_T_Side_A" ColumnName="Material_T_Side_A" />
+                <ScalarProperty Name="Material_T_Side_B" ColumnName="Material_T_Side_B" />
+                <ScalarProperty Name="Material_G_Side_A" ColumnName="Material_G_Side_A" />
+                <ScalarProperty Name="Material_G_Side_B" ColumnName="Material_G_Side_B" />
+                <ScalarProperty Name="Pipe_fitting_number_side_A_side_B" ColumnName="Pipe_fitting_number_side_A_side_B" />
+                <ScalarProperty Name="Heat_number_side_A_side_B" ColumnName="Heat_number_side_A_side_B" />
+                <ScalarProperty Name="Spool_No" ColumnName="Spool_No" />
+                <ScalarProperty Name="Weld_Type" ColumnName="Weld_Type" />
+                <ScalarProperty Name="Thickness" ColumnName="Thickness" />
+                <ScalarProperty Name="Diametere" ColumnName="Diametere" />
+                <ScalarProperty Name="Weld_process" ColumnName="Weld_process" />
+                <ScalarProperty Name="Fit_up_Date" ColumnName="Fit_up_Date" />
+                <ScalarProperty Name="Fit_up_inspection_QR_number" ColumnName="Fit_up_inspection_QR_number" />
+                <ScalarProperty Name="Date_Welded" ColumnName="Date_Welded" />
+                <ScalarProperty Name="Wps_Number" ColumnName="Wps_Number" />
+                <ScalarProperty Name="Wps_NO_Verfied" ColumnName="Wps_NO_Verfied" />
+                <ScalarProperty Name="Post_visual_result" ColumnName="Post_visual_result" />
+                <ScalarProperty Name="Post_visual_inspection_QR_NO" ColumnName="Post_visual_inspection_QR_NO" />
+                <ScalarProperty Name="Percentage_of_NDE_required" ColumnName="Percentage_of_NDE_required" />
+                <ScalarProperty Name="Date_NDE_was_requested" ColumnName="Date_NDE_was_requested" />
+                <ScalarProperty Name="NDE_request_QR_number" ColumnName="NDE_request_QR_number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="First_Result">
+            <EntityTypeMapping TypeName="WeModel.First_Result">
+              <MappingFragment StoreEntitySet="First_Result">
+                <ScalarProperty Name="First_RT_ASSESSMENT_NO" ColumnName="First_RT_ASSESSMENT_NO" />
+                <ScalarProperty Name="First_THIRD_PARTY_DATE" ColumnName="First_THIRD_PARTY_DATE" />
+                <ScalarProperty Name="First_THIRD_PARTY_RESULT" ColumnName="First_THIRD_PARTY_RESULT" />
+                <ScalarProperty Name="First_THIRD_PARTY_RESULT_Date" ColumnName="First_THIRD_PARTY_RESULT_Date" />
+                <ScalarProperty Name="PRIME_CONTRACTOR_RESULT" ColumnName="PRIME_CONTRACTOR_RESULT" />
+                <ScalarProperty Name="Weld_Number" ColumnName="Weld_Number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

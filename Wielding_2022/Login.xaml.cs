@@ -57,5 +57,14 @@ namespace Wielding_2022
                 throw;
             }
         }
+
+        private void Txt_password_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != System.Windows.Input.Key.Enter) return;
+
+            // your event handler here
+            e.Handled = true;
+           btn_add_Click(this,new RoutedEventArgs());
+        }
     }
 }
