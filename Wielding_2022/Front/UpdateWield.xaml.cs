@@ -19,11 +19,11 @@ namespace Backkk
     /// </summary>
     public partial class UpdateWieldWindow1 : Window
     {
-        private string WieldNo= null;
+        private string _wieldNo= null;
         public UpdateWieldWindow1(string wieldNo)
         {
             InitializeComponent();
-            WieldNo = wieldNo;
+            _wieldNo = wieldNo;
         }
 
         private void txt_EXE_name_TextChanged(object sender, TextChangedEventArgs e)
@@ -46,9 +46,9 @@ namespace Backkk
             Material_T_A.Text = "Material Type" + Environment.NewLine + " Side A";
             PIPE.Text = "Pipe/fitting " + Environment.NewLine + " number side A/side B";
            
-            var shop = DbSetup.getOneWield(WieldNo);
+            var shop = DbSetup.getOneWield(_wieldNo);
             Combo_wield.Text = shop.Weld_Number;
-            Line_Class.Text = shop.Line_class;
+            Line_Class.Text = shop.Line_Class;
             Combo_Line_number.Text = shop.Line_Number;
         }
     }

@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.IO.Packaging;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using Backkk;
+using Wielding_2022.Front;
 
 namespace Wielding_2022
 {
@@ -13,21 +19,21 @@ namespace Wielding_2022
     public partial class MainWindow : Window
     {
         public int PId { get; set; }
-
+        private List<Main_Tables> MainList;
         public MainWindow()
         {
             if (Application.Current.MainWindow != null)
                 Application.Current.MainWindow.WindowState = WindowState.Maximized;
+            MainList = DbSetup.GetAllMain();
+            Login login = new Login();
+            login.ShowDialog();
             InitializeComponent();
+            Load();
         }
 
+        private List<Main_Tables> _getList;
 
-        private void membersDataGrid_Loaded(object sender, RoutedEventArgs e)
-        {
-          /*  var Data = DbSetup.GetAll();
-            membersDataGrid.ItemsSource = Data.GroupBy(a => a.Drawing_Number);*/
-        }
-
+  
         private void membersDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             #region auto
@@ -74,7 +80,7 @@ namespace Wielding_2022
                 e.Cancel = true;
             }  
 
-            if (e.Column.Header.ToString() == "Line_Number")
+            if (e.Column.Header.ToString() == "ID")
             {
                 e.Cancel = true;
             }
@@ -124,33 +130,197 @@ namespace Wielding_2022
         {
             try
             {
-                var wield2 = (ShopTest)membersDataGrid.SelectedItem;
-                
-               
-                ShopTest shop = DbSetup.getOne(wield2.Drawing_Number);
-                Wielding wielding = new Wielding(shop.Drawing_Number);
-                wielding.Show();
+
+                Select();
             }
             catch (Exception ex)
             {
-                // ignored
             }
         }
 
+        internal void Select()
+        {
+            Main_Tables selectedItem = membersDataGrid.SelectedItem as Main_Tables ;
+            if (selectedItem != null)
+            {
+                if (selectedItem.Drawing_Number != null)
+                {
+                    Main_Tables shop = DbSetup.getOne(selectedItem, 1);
+                    Wielding wielding = new Wielding(shop,1);
+                    wielding.ShowDialog();
+                }
+
+                if (selectedItem.Line_Class != null)
+                {
+                    Main_Tables shop = DbSetup.getOne(selectedItem, 2);
+                    Wielding wielding = new Wielding(shop,2);
+                    wielding.ShowDialog();
+                }
+
+                if (selectedItem.Line_Number != null)
+                {
+                    Main_Tables shop = DbSetup.getOne(selectedItem, 3);
+                    Wielding wielding = new Wielding(shop,3);
+                    wielding.ShowDialog();
+                }
+            }
+        }
         private void WindowClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        private void Load()
         {
-            var data = DbSetup.GetAll();
-            var getList = data.GroupBy(a => a.Drawing_Number).Select(g => new ShopTest
+           
+            FilterComboBox.Items.Add("Drawing_Number");
+            FilterComboBox.Items.Add("Line_Class");
+            FilterComboBox.Items.Add("Line_Number");
+           
+            _getList = MainList.GroupBy(a => a.Drawing_Number).Select(g => new Main_Tables()
             {
                 Drawing_Number = g.Key
+                ,
             }).ToList();
-            membersDataGrid.ItemsSource = getList;
-            NumberTxt.Text =getList.Count.ToString();  
+            membersDataGrid.ItemsSource = _getList;
+            NumberTxt.Text = "Total "+ (string)FilterComboBox.SelectedValue + " is:"+_getList.Count.ToString();
+
+        }
+       
+        private string Filter()
+        {
+            if ((string)FilterComboBox.SelectedValue == null)
+            {
+                FilterComboBox.SelectedIndex = 0;
+
+            }
+            if ((string)FilterComboBox.SelectedValue == "Line_Class")
+            {
+                LoadLineCLass();
+            }
+            if ((string)FilterComboBox.SelectedValue == "Line_Number")
+            {
+                LoadLineNo();
+            }
+            if ((string)FilterComboBox.SelectedValue == "Drawing_Number")
+            {
+                LoadDrawing();
+            }
+
+            
+            return FilterComboBox.SelectedValue.ToString();
+            
+        }
+
+        private void LoadDrawing()
+        {
+            _getList = MainList.GroupBy(a => a.Drawing_Number).Select(g => new Main_Tables()
+            {
+                Drawing_Number = g.Key
+                ,
+            }).ToList();
+
+        }
+
+        private void LoadLineCLass()
+        {
+            _getList = MainList.GroupBy(a => a.Line_Class).Select(g => new Main_Tables()
+            {
+                Line_Class = g.Key
+                ,
+            }).ToList();
+        }
+
+        private void LoadLineNo()
+        {
+            _getList = MainList.GroupBy(a => a.Line_Number).Select(g => new Main_Tables()
+            {
+                Line_Number = g.Key
+                ,
+            }).ToList();
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+       
+           
+        }
+
+ 
+
+        private void FilterComboBox_OnDropDownClosed(object sender, EventArgs e)
+        {
+            textBoxSearch.ClearValue(ItemsControl.ItemsSourceProperty);
+            
+            textBoxSearch.Items.Clear();
+            string filter = Filter();
+            textBoxSearch.ItemsSource = _getList;
+            textBoxSearch.DisplayMemberPath = filter;
+            textBoxSearch.SelectedValuePath = "ID";
+
+        }
+
+        private void TextBoxSearch_OnDropDownClosed(object sender, EventArgs e)
+        {
+            if ((string)FilterComboBox.SelectedValue == "Line_Class")
+            {
+                var data = MainList.Where(a =>
+                    textBoxSearch.SelectionBoxItem != null && a.Line_Class == (string)textBoxSearch.Text).ToList();
+                membersDataGrid.ItemsSource = data;
+            }
+            if ((string)FilterComboBox.SelectedValue == "Line_Number")
+            {
+                var data = MainList.Where(a =>
+                    textBoxSearch.SelectionBoxItem != null && a.Line_Number == (string)textBoxSearch.Text).ToList();
+                membersDataGrid.ItemsSource = data;
+            }
+            if ((string)FilterComboBox.SelectedValue == "Drawing_Number")
+            {
+               var data = MainList.Where(a =>
+                    textBoxSearch.SelectionBoxItem != null && a.Drawing_Number == (string)textBoxSearch.Text).ToList();
+               membersDataGrid.ItemsSource = data;
+            }
+            
+        }
+
+   
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Add_Drawing add = new Add_Drawing();
+            add.ShowDialog();
+        }
+
+        private void DrawingNumber_OnClick(object sender, RoutedEventArgs e)
+        {
+            LoadDrawing();
+            TextAdd.Text = "Add New Drawing Number";
+            membersDataGrid.ItemsSource = _getList;
+            NumberTxt.Text = "Total " + "Drawing Numbers" + ": " + _getList.Count.ToString();
+
+        }
+
+        private void LineNumber_OnClick(object sender, RoutedEventArgs e)
+        {
+            LoadLineNo();
+            TextAdd.Text = "Add New Line Number";
+            membersDataGrid.ItemsSource = _getList;
+            NumberTxt.Text = "Total " + "Line Numbers" + ": " + _getList.Count.ToString();
+             
+        }
+
+        private void LineClass_OnClick(object sender, RoutedEventArgs e)
+        {
+            LoadLineCLass();
+            TextAdd.Text = "Add New Line Class";
+            membersDataGrid.ItemsSource = _getList;
+            NumberTxt.Text = "Total " + "Line Classes" + ": " + _getList.Count.ToString();
+
+        }
+
+        private void TextBoxSearch_OnTextInput(object sender, TextCompositionEventArgs e)
+        {
+         
         }
     }
 }

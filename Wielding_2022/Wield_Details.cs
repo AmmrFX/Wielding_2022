@@ -12,27 +12,34 @@ namespace Wielding_2022
     using System;
     using System.Collections.Generic;
     
-    public partial class ShopTest
+    public partial class Wield_Details
     {
-        public Nullable<double> Item_Number { get; set; }
         public string Weld_Number { get; set; }
         public string Intitial_Production { get; set; }
         public string Drawing_Number { get; set; }
         public string Line_Number { get; set; }
-        public string Line_class { get; set; }
-        public string Material_Type_Side_A { get; set; }
-        public string Material_Type_Side_B { get; set; }
-        public string Material_grade_Side_A { get; set; }
-        public string Material_grade_Side_B { get; set; }
+        public string Line_Class { get; set; }
+        public string Material_T_Side_A { get; set; }
+        public string Material_T_Side_B { get; set; }
+        public string Material_G_Side_A { get; set; }
+        public string Material_G_Side_B { get; set; }
         public string Pipe_fitting_number_side_A_side_B { get; set; }
         public string Heat_number_side_A_side_B { get; set; }
-        public string Spool_No_ { get; set; }
+        public string Spool_No { get; set; }
         public string Weld_Type { get; set; }
-        public string Thickness__mm_ { get; set; }
-        public string Diameter__inch_ { get; set; }
+        public string Thickness { get; set; }
+        public string Diametere { get; set; }
         public string Weld_process { get; set; }
-        public Nullable<System.DateTime> Fit_up_date { get; set; }
+        public Nullable<System.DateTime> Fit_up_Date { get; set; }
         public string Fit_up_inspection_QR_number { get; set; }
+        public Nullable<System.DateTime> Date_Welded { get; set; }
+        public string Wps_Number { get; set; }
+        public string Wps_NO_Verfied { get; set; }
+        public string Post_visual_result { get; set; }
+        public string Post_visual_inspection_QR_NO { get; set; }
+        public Nullable<double> Percentage_of_NDE_required { get; set; }
+        public Nullable<System.DateTime> Date_NDE_was_requested { get; set; }
+        public string NDE_request_QR_number { get; set; }
         public int Id { get; set; }
     }
 }

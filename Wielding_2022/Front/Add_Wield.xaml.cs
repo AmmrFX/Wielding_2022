@@ -22,5 +22,10 @@ namespace Wielding_2022.Front
         {
 
         }
+
+        private void Combo_Line_number_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

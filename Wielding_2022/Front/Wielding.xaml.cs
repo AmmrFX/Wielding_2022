@@ -20,10 +20,12 @@ namespace Backkk
     /// </summary>
     public partial class Wielding : Window
     {
-        public string DrawingNumber { get; set; }
-        public Wielding(string DrawingNum )
+        public Main_Tables DrawingNumber { get; set; }
+        public int No { get; set; }
+        public Wielding(Main_Tables DrawingNum,int no )
         {
             DrawingNumber = DrawingNum;
+            No = no;
             InitializeComponent();
         }
 
@@ -38,6 +40,22 @@ namespace Backkk
 
         private void membersDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
+            if (e.Column.Header.ToString() == "Item_Number")
+            {
+                e.Cancel = true;
+            }
+            
+
+            if (e.Column.Header.ToString() == "ID")
+            {
+                e.Cancel = true;
+            }
+
+       
+            if (e.Column.Header.ToString() == "Id")
+            {
+                e.Cancel = true;
+            }
 
         }
 
@@ -46,10 +64,10 @@ namespace Backkk
 
             try
             {
-                var wield2 = (ShopTest)membersDataGrid.SelectedItem;
-                ShopTest shop = DbSetup.getOneWield(wield2.Weld_Number);
+                var wield2 = (Wield_Details)membersDataGrid.SelectedItem;
+                Wield_Details shop = DbSetup.getOneWield(wield2.Weld_Number);
                 UpdateWieldWindow1 update = new UpdateWieldWindow1(shop.Weld_Number);
-                update.Show();
+                update.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -59,7 +77,7 @@ namespace Backkk
 
         private void membersDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            var data = DbSetup.GetAllWields(DrawingNumber);
+            var data = DbSetup.GetAllWields(DrawingNumber,No);
             membersDataGrid.ItemsSource = data;
             NumbersTxt.Text = data.Count.ToString();   
 
