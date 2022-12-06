@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
 
 namespace Backkk
 {
@@ -20,6 +21,11 @@ namespace Backkk
         public string Thickness { get; set; }
         public string diameter { get; set; }
         public string  Weldprocess { get; set; }
+        public string Wield_number { get; set; }
+        public string Line_number { get; set; }
+        public string Line_Class { get; set; }
+        
+
 
     }
 }

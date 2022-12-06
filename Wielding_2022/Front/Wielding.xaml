@@ -84,7 +84,7 @@
 
 
                 <!--Add Button-->
-                <Button Style="{StaticResource addButton}" HorizontalAlignment="Right" Margin="670,14,0,6" Grid.Row="1" >
+                <Button Name="Add_Button" Click="Add_Button_Click" Style="{StaticResource addButton}" HorizontalAlignment="Right" Margin="670,14,0,6" Grid.Row="1" >
                     <StackPanel Orientation="Horizontal">
 
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
@@ -107,7 +107,7 @@
 
                 <!--Filter Textbox-->
 
-                <DataGrid ColumnWidth="200" HorizontalScrollBarVisibility="Visible" RowStyle="{DynamicResource DataGridRowStyle1}" AutoGeneratingColumn="membersDataGrid_AutoGeneratingColumn" AutoGenerateColumns="True"  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" MouseDoubleClick="membersDataGrid_MouseDoubleClick" Style="{DynamicResource DataGridStyle1}" Loaded="membersDataGrid_Loaded">
+                <DataGrid IsReadOnly="True" ColumnWidth="200" HorizontalScrollBarVisibility="Visible" RowStyle="{DynamicResource DataGridRowStyle1}" AutoGeneratingColumn="membersDataGrid_AutoGeneratingColumn" AutoGenerateColumns="True"  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" MouseDoubleClick="membersDataGrid_MouseDoubleClick" Style="{DynamicResource DataGridStyle1}" Loaded="membersDataGrid_Loaded">
                     <DataGrid.Columns >
                         <DataGridTemplateColumn Width="150"  >
                             <DataGridTemplateColumn.CellTemplate>

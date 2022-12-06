@@ -110,30 +110,57 @@ namespace Backkk
             {
                 using (WeEntities db = new WeEntities())
                 {
+
                     var x = db.Wield_Details.Remove(shop);
+                    db.SaveChanges();
                     return true ;
                 }
+                
             }
             catch
             {
                 return false;
             }
         } 
-        public static bool Update(Wield_Details shop)
+     /*   public static bool UpdateMain(int id , Main_Tables main)
         {
             try
             {
                 using (WeEntities db = new WeEntities())
                 {
-                    var x = db.Wield_Details.Where(a=>a.Id ==shop.Id).FirstOrDefault();
+                    if (main != null && id != 0)
+                    {
+                        var x =db.Main_Tables.Where(a=>a.ID == id).
+                }
+                }
+                   
+            }
+            catch (Exception)
+            {
+
+                
+            }
+        } */
+        public static bool UpdateWield(string wieldNo,Wield_Details shop)
+        {
+            try
+            {
+                using (WeEntities db = new WeEntities())
+                {
+                    var x = db.Wield_Details.Where(a=>a.Weld_Number ==wieldNo).FirstOrDefault();
                     if (x != null)
                     {
-                        x.Drawing_Number = shop.Drawing_Number;
+                        x.Weld_Number = wieldNo;
+                       
                         x.Diametere = shop.Diametere;
                         x.Line_Number = shop.Line_Number;
                         x.Weld_Number = shop.Weld_Number;
-                    }  
+                        x.Line_Class = shop.Line_Class;
+                        x.Material_G_Side_A = shop.Material_G_Side_A;
+                    }
+                    db.SaveChanges();
                     return true ;
+
                 }
             }
             catch
@@ -149,21 +176,26 @@ namespace Backkk
                 db.SaveChanges();
             }
         }
-        public static void Add_Wield(Wield_Details wield)
+        public static void Add_Wield(string DrawingNo, Wield_Details wield)
         {
             using (WeEntities db = new WeEntities())
             {
-                db.Wield_Details.Add(wield);
-                db.SaveChanges();
+                if (wield != null)
+                {
+                    wield.Drawing_Number = DrawingNo;
+                    db.Wield_Details.Add(wield);
+                    db.SaveChanges();
+                } 
+            
             }
         }
-        public static int DeleteWield(int WieldNo)
+        public static int DeleteWield(string WieldNo)
         {
             try
             {
                 using (WeEntities db = new WeEntities())
                 {
-                    var target = db.Wield_Details.Where(a => a.Id == WieldNo).FirstOrDefault();
+                    var target = db.Wield_Details.Where(a => a.Weld_Number == WieldNo).FirstOrDefault();
                     if (target != null)
                     {
                         db.Wield_Details.Remove(target);

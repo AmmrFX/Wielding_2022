@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        mc:Ignorable="d" Loaded="Add_Drawing_OnLoaded"
+        mc:Ignorable="d" 
         Title="empty_services_wind" Height="450" Width="750" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Background="Transparent"  WindowStyle="None">
     <Window.Resources>
         <Style TargetType="TextBlock">

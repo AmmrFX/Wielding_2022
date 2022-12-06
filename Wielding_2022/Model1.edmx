@@ -27,6 +27,146 @@ warning 6002: The table/view 'We.dbo.First_Result' does not have a primary key d
           <Property Name="Line_Class" Type="nvarchar" MaxLength="100" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'We.dbo.'SHOP DATA BASE $'' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="'SHOP DATA BASE $'">
+          <Property Name="F1" Type="float" />
+          <Property Name="F2" Type="nvarchar" MaxLength="255" />
+          <Property Name="F3" Type="nvarchar" MaxLength="255" />
+          <Property Name="F4" Type="nvarchar" MaxLength="255" />
+          <Property Name="F5" Type="nvarchar" MaxLength="255" />
+          <Property Name="F6" Type="nvarchar" MaxLength="255" />
+          <Property Name="F7" Type="nvarchar" MaxLength="255" />
+          <Property Name="F8" Type="nvarchar" MaxLength="255" />
+          <Property Name="F9" Type="nvarchar" MaxLength="255" />
+          <Property Name="F10" Type="nvarchar" MaxLength="255" />
+          <Property Name="F11" Type="nvarchar" MaxLength="255" />
+          <Property Name="F12" Type="nvarchar" MaxLength="255" />
+          <Property Name="F13" Type="nvarchar" MaxLength="255" />
+          <Property Name="F14" Type="nvarchar" MaxLength="255" />
+          <Property Name="F15" Type="nvarchar" MaxLength="255" />
+          <Property Name="F16" Type="nvarchar" MaxLength="255" />
+          <Property Name="F17" Type="nvarchar" MaxLength="255" />
+          <Property Name="F18" Type="datetime" />
+          <Property Name="F19" Type="nvarchar" MaxLength="255" />
+          <Property Name="WELDERS  SYMBOL" Type="nvarchar" MaxLength="255" />
+          <Property Name="F21" Type="nvarchar" MaxLength="255" />
+          <Property Name="F22" Type="nvarchar" MaxLength="255" />
+          <Property Name="F23" Type="nvarchar" MaxLength="255" />
+          <Property Name="F24" Type="nvarchar" MaxLength="255" />
+          <Property Name="F25" Type="nvarchar" MaxLength="255" />
+          <Property Name="F26" Type="nvarchar" MaxLength="255" />
+          <Property Name="F27" Type="nvarchar" MaxLength="255" />
+          <Property Name="F28" Type="nvarchar" MaxLength="255" />
+          <Property Name="F29" Type="nvarchar" MaxLength="255" />
+          <Property Name="F30" Type="nvarchar" MaxLength="255" />
+          <Property Name="F31" Type="nvarchar" MaxLength="255" />
+          <Property Name="F32" Type="datetime" />
+          <Property Name="F33" Type="nvarchar" MaxLength="255" />
+          <Property Name="F34" Type="nvarchar" MaxLength="255" />
+          <Property Name="F35" Type="nvarchar" MaxLength="255" />
+          <Property Name="F36" Type="nvarchar" MaxLength="255" />
+          <Property Name="0%" Type="float" />
+          <Property Name="F38" Type="nvarchar" MaxLength="255" />
+          <Property Name="F39" Type="nvarchar" MaxLength="255" />
+          <Property Name="F40" Type="datetime" />
+          <Property Name="F41" Type="nvarchar" MaxLength="255" />
+          <Property Name="1 st NDE RESULT" Type="nvarchar" MaxLength="255" />
+          <Property Name="F43" Type="datetime" />
+          <Property Name="F44" Type="nvarchar" MaxLength="255" />
+          <Property Name="F45" Type="datetime" />
+          <Property Name="F46" Type="nvarchar" MaxLength="255" />
+          <Property Name="REPAIR DETAILS AND TRACER" Type="nvarchar" MaxLength="255" />
+          <Property Name="F48" Type="nvarchar" MaxLength="255" />
+          <Property Name="F49" Type="nvarchar" MaxLength="255" />
+          <Property Name="F50" Type="nvarchar" MaxLength="255" />
+          <Property Name="F51" Type="nvarchar" MaxLength="255" />
+          <Property Name="2nd NDE RESULT" Type="nvarchar" MaxLength="255" />
+          <Property Name="F53" Type="nvarchar" MaxLength="255" />
+          <Property Name="F54" Type="nvarchar" MaxLength="255" />
+          <Property Name="F55" Type="nvarchar" MaxLength="255" />
+          <Property Name="F56" Type="nvarchar" MaxLength="255" />
+          <Property Name="3rd NDE RESULT" Type="nvarchar" MaxLength="255" />
+          <Property Name="F58" Type="nvarchar" MaxLength="255" />
+          <Property Name="F59" Type="nvarchar" MaxLength="255" />
+          <Property Name="F60" Type="nvarchar" MaxLength="255" />
+          <Property Name="F61" Type="nvarchar" MaxLength="255" />
+          <Property Name="Final NDE Result" Type="nvarchar" MaxLength="255" />
+          <Property Name="F63" Type="datetime" />
+          <Property Name="F64" Type="nvarchar" MaxLength="255" />
+          <Property Name="SAUDI ARAMCO RT FILM EVALUATION" Type="nvarchar" MaxLength="255" />
+          <Property Name="F66" Type="nvarchar" MaxLength="255" />
+          <Property Name="F67" Type="nvarchar" MaxLength="255" />
+          <Property Name="F68" Type="nvarchar" MaxLength="255" />
+          <Property Name="F69" Type="nvarchar" MaxLength="255" />
+          <Property Name="F70" Type="nvarchar" MaxLength="255" />
+          <Property Name="Other NDE" Type="nvarchar" MaxLength="255" />
+          <Property Name="F72" Type="nvarchar" MaxLength="255" />
+          <Property Name="F73" Type="nvarchar" MaxLength="255" />
+          <Property Name="F74" Type="nvarchar" MaxLength="255" />
+          <Property Name="F75" Type="nvarchar" MaxLength="255" />
+          <Property Name="F76" Type="nvarchar" MaxLength="255" />
+          <Property Name="F77" Type="nvarchar" MaxLength="255" />
+          <Property Name="Coating" Type="nvarchar" MaxLength="255" />
+          <Property Name="F79" Type="nvarchar" MaxLength="255" />
+          <Property Name="F80" Type="nvarchar" MaxLength="255" />
+          <Property Name="CIVIL" Type="nvarchar" MaxLength="255" />
+          <Property Name="F82" Type="nvarchar" MaxLength="255" />
+          <Property Name="F83" Type="nvarchar" MaxLength="255" />
+          <Property Name="F84" Type="nvarchar" MaxLength="255" />
+          <Property Name="F85" Type="nvarchar" MaxLength="255" />
+          <Property Name="F86" Type="nvarchar" MaxLength="255" />
+          <Property Name="F87" Type="nvarchar" MaxLength="255" />
+          <Property Name="F88" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <EntityType Name="ShopTest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Item Number" Type="float" />
+          <Property Name="Weld Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Intitial Production" Type="nvarchar" MaxLength="255" />
+          <Property Name="Drawing Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Line Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Line class" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material Type Side A" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material Type Side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material grade_Side A" Type="nvarchar" MaxLength="255" />
+          <Property Name="Material grade_Side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pipe/fitting number side A/side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Heat number side A/side B" Type="nvarchar" MaxLength="255" />
+          <Property Name="Spool No#" Type="nvarchar" MaxLength="255" />
+          <Property Name="Weld Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Thickness_(mm)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Diameter_(inch)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Weld process" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fit-up date" Type="datetime" />
+          <Property Name="Fit-up inspection QR number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'We.dbo.weild' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="weild">
+          <Property Name="id" Type="int" />
+          <Property Name="Weild_no" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'We.dbo.Welders_Symp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Welders_Symp">
+          <Property Name="Root_A" Type="nvarchar" MaxLength="50" />
+          <Property Name="Root_B" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hot_A" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hot_B" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fill_1_A" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fill_1_B" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fill_2_A" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fill_2_B" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fill_3_A" Type="datetime" />
+          <Property Name="Fill_3_B" Type="datetime" />
+          <Property Name="Cap_A" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cap_B" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weld_Number" Type="nvarchar" MaxLength="100" />
+        </EntityType>-->
         <EntityType Name="Wield_Details">
           <Key>
             <PropertyRef Name="Id" />
@@ -61,6 +201,7 @@ warning 6002: The table/view 'We.dbo.First_Result' does not have a primary key d
         </EntityType>
         <EntityContainer Name="WeModelStoreContainer">
           <EntitySet Name="Main_Tables" EntityType="Self.Main_Tables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopTest" EntityType="Self.ShopTest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wield_Details" EntityType="Self.Wield_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="First_Result" EntityType="Self.First_Result" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -86,6 +227,31 @@ FROM [dbo].[First_Result] AS [First_Result]</DefiningQuery>
           <Property Name="Line_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Line_Class" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ShopTest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Item_Number" Type="Double" />
+          <Property Name="Weld_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Intitial_Production" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Drawing_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Line_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Line_class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_Type_Side_A" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_Type_Side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_grade_Side_A" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Material_grade_Side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Pipe_fitting_number_side_A_side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Heat_number_side_A_side_B" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Spool_No_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Thickness__mm_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Diameter__inch_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Weld_process" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fit_up_date" Type="DateTime" Precision="3" />
+          <Property Name="Fit_up_inspection_QR_number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Wield_Details">
           <Key>
@@ -132,6 +298,7 @@ FROM [dbo].[First_Result] AS [First_Result]</DefiningQuery>
         </EntityType>
         <EntityContainer Name="WeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Main_Tables" EntityType="Self.Main_Tables" />
+          <EntitySet Name="ShopTests" EntityType="Self.ShopTest" />
           <EntitySet Name="Wield_Details" EntityType="Self.Wield_Details" />
           <EntitySet Name="First_Result" EntityType="Self.First_Result" />
         </EntityContainer>
@@ -148,6 +315,32 @@ FROM [dbo].[First_Result] AS [First_Result]</DefiningQuery>
                 <ScalarProperty Name="Line_Number" ColumnName="Line_Number" />
                 <ScalarProperty Name="Line_Class" ColumnName="Line_Class" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopTests">
+            <EntityTypeMapping TypeName="WeModel.ShopTest">
+              <MappingFragment StoreEntitySet="ShopTest">
+                <ScalarProperty Name="Item_Number" ColumnName="Item Number" />
+                <ScalarProperty Name="Weld_Number" ColumnName="Weld Number" />
+                <ScalarProperty Name="Intitial_Production" ColumnName="Intitial Production" />
+                <ScalarProperty Name="Drawing_Number" ColumnName="Drawing Number" />
+                <ScalarProperty Name="Line_Number" ColumnName="Line Number" />
+                <ScalarProperty Name="Line_class" ColumnName="Line class" />
+                <ScalarProperty Name="Material_Type_Side_A" ColumnName="Material Type Side A" />
+                <ScalarProperty Name="Material_Type_Side_B" ColumnName="Material Type Side B" />
+                <ScalarProperty Name="Material_grade_Side_A" ColumnName="Material grade_Side A" />
+                <ScalarProperty Name="Material_grade_Side_B" ColumnName="Material grade_Side B" />
+                <ScalarProperty Name="Pipe_fitting_number_side_A_side_B" ColumnName="Pipe/fitting number side A/side B" />
+                <ScalarProperty Name="Heat_number_side_A_side_B" ColumnName="Heat number side A/side B" />
+                <ScalarProperty Name="Spool_No_" ColumnName="Spool No#" />
+                <ScalarProperty Name="Weld_Type" ColumnName="Weld Type" />
+                <ScalarProperty Name="Thickness__mm_" ColumnName="Thickness_(mm)" />
+                <ScalarProperty Name="Diameter__inch_" ColumnName="Diameter_(inch)" />
+                <ScalarProperty Name="Weld_process" ColumnName="Weld process" />
+                <ScalarProperty Name="Fit_up_date" ColumnName="Fit-up date" />
+                <ScalarProperty Name="Fit_up_inspection_QR_number" ColumnName="Fit-up inspection QR number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

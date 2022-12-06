@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,24 +21,32 @@ namespace Wielding_2022.Front
     /// </summary>
     public partial class Add_Drawing : Window
     {
-        public Add_Drawing()
+        private Main_Tables _Main;
+        private int _flag;
+        //add=-1 update = -2
+        public Add_Drawing( int Flag)
         {
+           /* _Main = Main;*/
+            _flag = Flag;
             InitializeComponent();
         }
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
-         DbSetup.Add_Main(new Main_Tables()
+            if (_flag == -1)
             {
-                Drawing_Number = txtDrawing.Text,
-                Line_Class = txtLineClass.Text,
-                Line_Number = txtLineNo.Text
-            });
-        }
+                DbSetup.Add_Main(new Main_Tables()
+                {
+                    Drawing_Number = txtDrawing.Text,
+                    Line_Class = txtLineClass.Text,
+                    Line_Number = txtLineNo.Text
+                });
+            }
+            if (_flag == -2)
+            {
+              /*  DbSetup.UpdateMain*/
+            }
 
-        private void Add_Drawing_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

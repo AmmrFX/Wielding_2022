@@ -26,6 +26,7 @@ namespace Wielding_2022
         }
     
         public DbSet<Main_Tables> Main_Tables { get; set; }
+        public DbSet<ShopTest> ShopTests { get; set; }
         public DbSet<Wield_Details> Wield_Details { get; set; }
         public DbSet<First_Result> First_Result { get; set; }
     }

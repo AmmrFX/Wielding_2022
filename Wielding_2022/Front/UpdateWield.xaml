@@ -5,12 +5,14 @@
  
        
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Backkk" Loaded="UpdateWieldWindow1_OnLoaded"
+        xmlns:local="clr-namespace:Backkk" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks" Loaded="UpdateWieldWindow1_OnLoaded"
 
         Title="Wielding" Background="Transparent" WindowStyle="None" 
         Height="720" Width="1080">
 
     <Window.Resources>
+
+
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="22" />
             <Setter Property="Foreground" Value="#623ED0" />
@@ -74,7 +76,7 @@
 
         <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
             <Border Background="{TemplateBinding Background}" 
-                x:Name="Bd" BorderBrush="#1D428A"
+                    x:Name="Bd" BorderBrush="#1D428A"
                 BorderThickness="1.5" CornerRadius="15">
                 <ScrollViewer x:Name="PART_ContentHost"/>
             </Border>
@@ -100,7 +102,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" HorizontalAlignment="Left" Width="1036">
+                <Button Background="Transparent" Style="{StaticResource topButton}"  Margin="0 0 10 0" BorderBrush="Transparent" Width="auto" Height="auto"  Cursor="Hand" x:Name="btn_close" Click="WindowClose_Click">
+                    <Icon:PackIconMaterial Kind="Close" Width="40" Height="17" Background="#dcdcdc" Foreground="#1F4591" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
 
@@ -130,14 +135,15 @@
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
-                        <ColumnDefinition Width="127*"/>
-                        <ColumnDefinition Width="77*"/>
+                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition Width="195*"/>
+                        <ColumnDefinition Width="154*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox x:Name="Combo_wield" IsEditable="True" Grid.ColumnSpan="2" Margin="170,-69,228,108"/>
-                    <ComboBox x:Name="Combo_Line_number"  IsEditable="True"   Margin="168,17,228,22" Grid.ColumnSpan="2"/>
-                    <ComboBox x:Name="MTA_Combo"  IsEditable="True" Margin="459,17,33,22" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <ComboBox x:Name="Line_Class"  IsEditable="True"  Margin="459,-69,33,108" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <ComboBox x:Name="txt_service_name_Copy3"   IsEditable="True"  Margin="168,101,228,-62" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="Combo_wield" Grid.ColumnSpan="3" Margin="175,-68,0,93" Width="330"/>
+                    <ComboBox x:Name="Combo_Line_number"  IsEditable="True"   Margin="168,17,228,22" Grid.ColumnSpan="3"/>
+                    <ComboBox x:Name="MTA_Combo"  IsEditable="True" Margin="341,17,33,22" Grid.Column="2" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="Line_Class"  IsEditable="True"  Margin="341,-69,33,108" Grid.Column="2" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="txt_service_name_Copy3"   IsEditable="True"  Margin="168,101,228,-62" Grid.ColumnSpan="3"/>
                 </Grid>
 
                 <!-- Exe  name  -->
@@ -167,22 +173,22 @@
                 <!-- button save  -->
                 <Button Background="#623ED0" Grid.Row="7" x:Name="btn_add"   Content="Update Wield" Click="btn_add_Click"></Button>
                 <TextBlock Name="Material_T_A" Text="Material Type A"  Margin="518,22,0,0" VerticalAlignment="Top" Grid.Row="2"/>
-                <ComboBox x:Name="txt_service_name_Copy4" IsEditable="True" Margin="168,17,536,27" SelectionChanged="txt_service_name_Copy4_SelectionChanged" Grid.Row="4"/>
-                <ComboBox x:Name="txt_service_name_Copy5" IsEditable="True"  Margin="168,17,536,27" SelectionChanged="txt_service_name_Copy4_SelectionChanged" Grid.Row="5"/>
-                <ComboBox x:Name="txt_service_name_Copy6" IsEditable="True" Margin="681,20,31,20" Grid.Row="3"/>
-                <TextBlock Name="Spool_No" Text="Spool No" Margin="518,0,0,0" Grid.Row="3"/>
+                <ComboBox x:Name="PIPE" IsEditable="True" Margin="168,17,536,27" SelectionChanged="txt_service_name_Copy4_SelectionChanged" Grid.Row="4"/>
+                <ComboBox x:Name="Thickness" IsEditable="True"  Margin="168,17,536,27" SelectionChanged="txt_service_name_Copy4_SelectionChanged" Grid.Row="5"/>
+                <ComboBox x:Name="Spool_No" IsEditable="True" Margin="681,20,31,20" Grid.Row="3"/>
+                <TextBlock Name="Spool_o" Text="Spool No" Margin="518,0,0,0" Grid.Row="3"/>
 
 
             </Grid>
-            <ComboBox IsEditable="True" x:Name="txt_service_name_Copy7"  Margin="683,355,29,272" Grid.RowSpan="2" RenderTransformOrigin="0.725,0.822"/>
-            <ComboBox  IsEditable="True" x:Name="txt_service_name_Copy8"  Margin="683,437,29,190" Grid.RowSpan="2" RenderTransformOrigin="0.503,0.733"/>
+            <ComboBox IsEditable="True" x:Name="Wield_type"  Margin="683,355,29,272" Grid.RowSpan="2" RenderTransformOrigin="0.725,0.822"/>
+            <ComboBox  IsEditable="True" x:Name="diameter"  Margin="683,437,29,190" Grid.RowSpan="2" RenderTransformOrigin="0.503,0.733"/>
             <TextBlock  Text="Wield Type" Margin="518,365,0,0" VerticalAlignment="Top" Grid.Row="1" RenderTransformOrigin="0.068,0.593"/>
             <TextBlock  Text="Diameter(inch)" Margin="518,444,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <TextBlock  Text="Line Class" Margin="518,113,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <TextBlock  Text="Line Number" Margin="0,193,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <TextBlock  Text="Weld Number" Margin="0,113,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <TextBlock Name="Material_Type_B" Text="Material Type B" Margin="-2,284,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <TextBlock Name="PIPE"  Text="PIPE" Margin="0,365,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <TextBlock Name="PIPE2"  Text="PIPE" Margin="0,365,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <TextBlock  Text="Thickness(mm)"  Margin="0,449,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         </Grid>
     </Border>

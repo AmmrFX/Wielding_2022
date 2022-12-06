@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-Background="Transparent" WindowStyle="None" WindowState="Maximized" Loaded="MainWindow_OnLoaded"
+Background="Transparent" WindowStyle="None" WindowState="Maximized"
         mc:Ignorable="d" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
         
         Height="720" Width="1800" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
@@ -90,13 +90,13 @@ Background="Transparent" WindowStyle="None" WindowState="Maximized" Loaded="Main
                 <TextBox Margin="20,0,459,0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
                            Panel.ZIndex="1" Text="Search here ..." Name="SearchTXT" 
                            Visibility="{Binding ElementName=textBoxSearch,  Converter={StaticResource BoolToVis}}" Grid.Row="1" />
-                <ComboBox 
-                    Grid.Row="1" TextInput="TextBoxSearch_OnTextInput" DropDownClosed="TextBoxSearch_OnDropDownClosed" x:Name="textBoxSearch" Margin="130,10,920,28" Height="30" IsEditable="True" IsTextSearchEnabled="True" Width="500">
+                <ComboBox DropDownClosed="TextBoxSearch_OnDropDownClosed" 
+                    x:Name="textBoxSearch" Margin="64,10,0,15" Height="30" IsEditable="True" HorizontalAlignment="Left"  IsTextSearchEnabled="True" Grid.Row="1" Width="440" >
 
                 </ComboBox>
-                <ComboBox Text="Filter" DropDownClosed="FilterComboBox_OnDropDownClosed" Name="FilterComboBox" Margin="720,10,630,29" Grid.Row="1" RenderTransformOrigin="-0.036,0.462" Width="200" IsEditable="True" IsTextSearchEnabled="True" />
+                <ComboBox Text="Filter" DropDownClosed="FilterComboBox_OnDropDownClosed" Name="FilterComboBox" Margin="717,19,633,20" Grid.Row="1" RenderTransformOrigin="-0.036,0.462" Width="200" IsEditable="True" IsTextSearchEnabled="True" />
 
-                <Icon:PackIconMaterial Kind="Magnify" Width="14" Height="15" Margin="591,17,0,0" Foreground="#B0B9C6" Grid.Row="1" RenderTransformOrigin="-13,0.296" />
+                <Icon:PackIconMaterial Kind="Magnify" Width="14" Height="15" Margin="470,24,0,0" Foreground="#B0B9C6" Grid.Row="1" RenderTransformOrigin="12.6,0.062" />
                 <!--Seprator-->
                 <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
 
@@ -111,7 +111,7 @@ Background="Transparent" WindowStyle="None" WindowState="Maximized" Loaded="Main
 
                 <!--Filter Textbox-->
 
-                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" AutoGeneratingColumn="membersDataGrid_AutoGeneratingColumn" AutoGenerateColumns="True"  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" MouseDoubleClick="membersDataGrid_MouseDoubleClick" Style="{DynamicResource DataGridStyle1}">
+                <DataGrid IsReadOnly="True" RowStyle="{DynamicResource DataGridRowStyle1}" AutoGeneratingColumn="membersDataGrid_AutoGeneratingColumn" AutoGenerateColumns="True"  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" MouseDoubleClick="membersDataGrid_MouseDoubleClick" Style="{DynamicResource DataGridStyle1}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="150"  >
                             <DataGridTemplateColumn.CellTemplate>
