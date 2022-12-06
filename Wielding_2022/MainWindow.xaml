@@ -27,7 +27,7 @@ Background="Transparent" WindowStyle="None" WindowState="Maximized"
                 </Grid.RowDefinitions>
 
                 <!--Menu Icon-->
-                <Border Grid.Row="1" Background="#623ED0">
+                <Border Grid.Row="1" Background="#623ED0" CornerRadius="0,50,0,0">
 
                     <DockPanel>
                         <!--Menu Logo-->

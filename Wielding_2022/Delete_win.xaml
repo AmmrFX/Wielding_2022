@@ -156,12 +156,12 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock  Foreground="#623ED0" Grid.Row="0" Text="Login" HorizontalAlignment="Center"   FontSize="40"></TextBlock>
+                    <TextBlock  Foreground="#623ED0" Grid.Row="0" Text="Delete" HorizontalAlignment="Center"   FontSize="40"></TextBlock>
 
                     <!-- IP  -->
-                <TextBlock x:Name="Message_txt" Text="amr" Margin="302,0,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#623ED0" ></TextBlock>
+                <TextBlock x:Name="Message_txt" Text="amr"  Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#e10032" ></TextBlock>
 
-                <Button Background="#623ED0" Grid.Row="4" x:Name="btn_cancel" Content="Cancel" Click="btn_cancel_Click" Margin="392,17,78,17" ></Button>
+                <Button Background="Gray" Grid.Row="4" x:Name="btn_cancel" Content="Cancel" Click="btn_cancel_Click" Margin="392,17,78,17" ></Button>
                 <Button Background="#e10032" Grid.Row="4" x:Name="btn_delete" Content="Delete" Click="btn_delete_Click" Margin="74,17,396,17" ></Button>
                 </Grid>
             </Grid>

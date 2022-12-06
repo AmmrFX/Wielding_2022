@@ -172,7 +172,7 @@ namespace Wielding_2022
             FilterComboBox.Items.Add("Drawing_Number");
             FilterComboBox.Items.Add("Line_Class");
             FilterComboBox.Items.Add("Line_Number");
-
+            FilterComboBox.SelectedIndex = 0;
             _getList = MainList.GroupBy(a => a.Drawing_Number).Select(g => new Main_Tables()
             {
                 Drawing_Number = g.Key
@@ -284,6 +284,7 @@ namespace Wielding_2022
 
         private void DrawingNumber_OnClick(object sender, RoutedEventArgs e)
         {
+            FilterComboBox.SelectedIndex = 0;
             LoadDrawing();
             TextAdd.Text = "Add New Drawing Number";
             membersDataGrid.ItemsSource = _getList;
@@ -293,6 +294,7 @@ namespace Wielding_2022
 
         private void LineNumber_OnClick(object sender, RoutedEventArgs e)
         {
+            FilterComboBox.SelectedIndex =2;
             LoadLineNo();
             TextAdd.Text = "Add New Line Number";
             membersDataGrid.ItemsSource = _getList;
@@ -302,6 +304,7 @@ namespace Wielding_2022
 
         private void LineClass_OnClick(object sender, RoutedEventArgs e)
         {
+            FilterComboBox.SelectedIndex = 1;
             LoadLineCLass();
             TextAdd.Text = "Add New Line Class";
             membersDataGrid.ItemsSource = _getList;

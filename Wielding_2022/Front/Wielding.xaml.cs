@@ -79,11 +79,24 @@ namespace Backkk
 
         private void Load()
         {
-            var data = DbSetup.GetAllWields(DrawingNumber, No);
-            membersDataGrid.ItemsSource = data;
-            textBoxSearch.ItemsSource = data;
-            LoadCombo();
-            NumbersTxt.Text ="Total Wields: " +data.Count.ToString();
+            try
+            {
+                var data = DbSetup.GetAllWields(DrawingNumber, No);
+                if (data !=null)
+                {
+                    membersDataGrid.ItemsSource = data;
+                    textBoxSearch.ItemsSource = data;
+                    LoadCombo();
+                    NumbersTxt.Text = "Total Wields: " + data.Count.ToString();
+                }
+             
+            }
+            catch (Exception)
+            {
+
+          
+            }
+          
         }
         private void LoadCombo()
         {

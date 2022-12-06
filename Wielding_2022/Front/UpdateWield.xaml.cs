@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using Wielding_2022;
 
@@ -37,8 +38,55 @@ namespace Backkk
         }
         private void Load()
         {
-            Load
+            LoadLineClass();
+            LoadLineNumber();
+            LoadPipe();
+            LoadMTA();
+            LoatMTb();
+            LoadSpoolNo();
+            LoadWieldType();
+
         }
+
+        private void LoadWieldType()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadSpoolNo()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadMTA()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoatMTb()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadPipe()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadLineNumber()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadLineClass()
+        {
+            var x= Wield_DetailsList.GroupBy(a => a.Line_Class).Select(g => new Main_Tables()
+            {
+                Line_Number = g.Key
+                 ,
+            }).ToList();
+        }
+
         private Wield_Details AddorUpdate()
         {
             var data = new Wielding_2022.Wield_Details
