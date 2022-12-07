@@ -22,7 +22,7 @@ namespace Wielding_2022
         public Delete_win(String Message)
         {
             InitializeComponent();
-            Message_txt.Text= "Are You sure to delete "+ Message;
+            Message_txt.Text= "Are You sure to delete this "+ Message;
         }
 
         private void btn_delete_Click(object sender, RoutedEventArgs e)

@@ -188,7 +188,6 @@ namespace Wielding_2022
             if ((string)FilterComboBox.SelectedValue == null)
             {
                 FilterComboBox.SelectedIndex = 1;
-
             }
             if ((string)FilterComboBox.SelectedValue == "Line_Class")
             {
@@ -202,18 +201,14 @@ namespace Wielding_2022
             {
                 LoadDrawing();
             }
-
-
             return FilterComboBox.SelectedValue.ToString();
-
         }
 
         private void LoadDrawing()
         {
             _getList = MainList.GroupBy(a => a.Drawing_Number).Select(g => new Main_Tables()
             {
-                Drawing_Number = g.Key
-                ,
+                Drawing_Number = g.Key,
             }).ToList();
 
         }
@@ -222,8 +217,7 @@ namespace Wielding_2022
         {
             _getList = MainList.GroupBy(a => a.Line_Class).Select(g => new Main_Tables()
             {
-                Line_Class = g.Key
-                ,
+                Line_Class = g.Key,
             }).ToList();
         }
 
@@ -231,8 +225,7 @@ namespace Wielding_2022
         {
             _getList = MainList.GroupBy(a => a.Line_Number).Select(g => new Main_Tables()
             {
-                Line_Number = g.Key
-                ,
+                Line_Number = g.Key,
             }).ToList();
         }
         private void FilterComboBox_OnDropDownClosed(object sender, EventArgs e)
@@ -289,7 +282,6 @@ namespace Wielding_2022
             TextAdd.Text = "Add New Drawing Number";
             membersDataGrid.ItemsSource = _getList;
             NumberTxt.Text = "Total " + "Drawing Numbers" + ": " + _getList.Count.ToString();
-
         }
 
         private void LineNumber_OnClick(object sender, RoutedEventArgs e)
@@ -299,7 +291,6 @@ namespace Wielding_2022
             TextAdd.Text = "Add New Line Number";
             membersDataGrid.ItemsSource = _getList;
             NumberTxt.Text = "Total " + "Line Numbers" + ": " + _getList.Count.ToString();
-
         }
 
         private void LineClass_OnClick(object sender, RoutedEventArgs e)

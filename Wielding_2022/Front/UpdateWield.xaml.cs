@@ -83,7 +83,6 @@ namespace Backkk
             var x= Wield_DetailsList.GroupBy(a => a.Line_Class).Select(g => new Main_Tables()
             {
                 Line_Number = g.Key
-                 ,
             }).ToList();
         }
 

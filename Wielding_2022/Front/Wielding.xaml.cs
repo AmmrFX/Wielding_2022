@@ -112,6 +112,7 @@ namespace Backkk
         private void WindowClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
         }
 
         private void Add_Button_Click(object sender, RoutedEventArgs e)
